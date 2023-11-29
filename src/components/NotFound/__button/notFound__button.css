@@ -1,0 +1,25 @@
+.notFound__button {
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4285F4;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  position: relative;
+  top: 184px;
+  height: 17px;
+}
+
+.notFound__button:hover {
+  cursor: pointer;
+  opacity: .9;
+  border-bottom: #4285F4 1px solid;
+}
+
+@media screen and (max-width: 767px) {
+  .notFound__button {
+    position: static;
+    margin-top: 284px;
+  }
+}

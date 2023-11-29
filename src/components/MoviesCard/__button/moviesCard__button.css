@@ -1,0 +1,26 @@
+.moviesCard__button {
+    width: 14px;
+    height: 14px;
+    margin: 14px 12px 37px auto;
+    border-radius: 14px;
+    border: 2px #fff solid;
+    background-color: transparent;
+    grid-area: text;
+}
+
+.moviesCard__button_active {
+    background-color: #2BE080;
+}
+
+.moviesCard__button_saved {
+    background-image: url(../../../images/moviesCard__button.svg);
+    border: none;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.moviesCard__button:hover {
+  cursor: pointer;
+  opacity: .7;
+}

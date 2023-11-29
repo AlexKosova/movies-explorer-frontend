@@ -1,0 +1,14 @@
+.footer {
+    font-family: 'Inter', Courier, monospace;
+    min-height: 172px;
+    min-width: 100%;
+    background-color: #202020;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 767px) {
+    .footer {
+      padding-bottom: 36px;
+      padding-top: 50px;
+    }
+  }

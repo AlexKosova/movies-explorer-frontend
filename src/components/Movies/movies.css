@@ -1,0 +1,24 @@
+.movies {
+    background-color: #202020;
+    min-width: 100%;
+    font-family: 'Inter', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .movies {
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movies {
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}

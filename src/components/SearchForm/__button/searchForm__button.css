@@ -1,0 +1,15 @@
+.searchForm__button {
+    background-image: url(../../../images/searchForm__button.svg);
+    height: 34px;
+    width: 34px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    background-color: #4285F4;
+    margin: 70px 0 13px 0;
+}
+
+.searchForm__button:hover {
+  cursor: pointer;
+  opacity: .9;
+}

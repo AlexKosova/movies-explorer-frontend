@@ -1,0 +1,27 @@
+.aboutProject__block {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 550px 550px;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 8px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .aboutProject__block {
+    grid-template-columns: 319px 319px;
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject__block {
+    flex-direction: column;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    max-width: 284px;
+    row-gap: 15px;
+    grid-template-areas:
+    'title_1' 'subtitle_1' 'title_2' 'subtitle_2';
+  }
+}

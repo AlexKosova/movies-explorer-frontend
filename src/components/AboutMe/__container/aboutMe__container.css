@@ -1,0 +1,24 @@
+.aboutMe__container {
+    height: 327px;
+    max-width: 600px;
+    grid-area: info;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .aboutMe__container {
+    max-width: 364px;
+    margin-right: 49px;
+    grid-area: info;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutMe__container {
+    max-width: 292px;
+    justify-content: center;
+    height: fit-content;
+    margin: 0 auto 0 auto;
+    grid-area: info;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,30 @@
+.moviesCard {
+    width: 270px;
+    background-color: #222222;
+    border-radius: 20px;
+    display: grid;
+    grid-template-areas: 'pic' 'text';
+    grid-template-columns: 270px;
+    grid-template-rows: 151px 67px;
+}
+
+.moviesCard:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .moviesCard {
+    width: 339px;
+    height: 257px;
+    grid-template-columns: 339px;
+    grid-template-rows: 190px 67px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .moviesCard {
+    max-width: 300px;
+    max-height: 235px;
+  }
+}

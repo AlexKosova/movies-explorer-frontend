@@ -1,0 +1,23 @@
+.aboutMe__text {
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 26px 0 99px 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .aboutMe__text {
+    margin: 20px 0 87px 0;
+    line-height: 18px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutMe__text {
+    line-height: 16px;
+    font-size: 11px;
+    margin-bottom: 38px;
+    margin-top: 24px;
+  }
+}

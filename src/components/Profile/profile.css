@@ -1,0 +1,10 @@
+.profile {
+    background-color: #202020;
+    min-width: 100vw;
+    height: 626px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    font-family: 'Inter', Courier, monospace;
+}

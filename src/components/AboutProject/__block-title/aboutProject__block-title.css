@@ -1,0 +1,18 @@
+.aboutProject__block-title {
+    line-height: 24.2px;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject__block-title {
+    font-size: 18px;
+    line-height: 21.78px;
+    grid-area: title_1;
+  }
+  .aboutProject__block-title:last-of-type {
+    grid-area: title_2;
+    margin-top: 40px;
+  }
+}

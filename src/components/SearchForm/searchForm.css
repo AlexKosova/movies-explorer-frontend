@@ -1,0 +1,18 @@
+.searchForm {
+    max-width: 1140px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .searchForm {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .searchForm {
+    max-width: 320px;
+  }
+}

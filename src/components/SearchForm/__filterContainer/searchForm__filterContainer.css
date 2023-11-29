@@ -1,0 +1,16 @@
+.searchForm__filterContainer {
+    display: flex;
+    margin: 32px 0 48px 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .searchForm__filterContainer {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .searchForm__filterContainer {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,26 @@
+.profile__input {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    width: 320px;
+    color: #fff;
+    text-align: end;
+    cursor: text;
+    margin-bottom: 17px;
+    outline: none;
+    text-overflow:ellipsis;
+}
+
+.profile__input::placeholder {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.3px;
+}
+
+.profile__input_label {
+    width: 90px;
+    margin: 0;
+    padding: 0;
+}

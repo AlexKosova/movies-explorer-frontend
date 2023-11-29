@@ -1,0 +1,9 @@
+.header__guest {
+    margin-top: 28px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__guest {
+    margin: auto 0 auto 0;
+  }
+}

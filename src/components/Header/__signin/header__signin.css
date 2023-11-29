@@ -1,0 +1,23 @@
+.header__signin {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: black;
+    text-decoration: none;
+    background-color: #3DDC84;
+    background-size: cover;
+    margin: 0;
+    border-radius: 3px;
+    padding: 8px 20px;
+}
+
+.header__signin:hover {
+  opacity: .9;
+}
+
+@media screen and (max-width: 767px) {
+  .header__signin {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+}

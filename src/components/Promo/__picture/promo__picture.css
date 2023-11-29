@@ -1,0 +1,21 @@
+.promo__picture {
+    height: 304px;
+    width: 310px;
+    margin-top: 75px;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .promo__picture {
+    margin: 140px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .promo__picture {
+    margin: 70px auto 0 auto;
+    height: 206px;
+    width: 210px;
+    max-width: 292px;
+  }
+}

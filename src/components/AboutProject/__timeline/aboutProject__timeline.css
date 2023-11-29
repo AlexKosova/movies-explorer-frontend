@@ -1,0 +1,26 @@
+.aboutProject__timeline {
+    margin-top: 110px;
+    display: grid;
+    grid-template-columns: 228px 912px;
+    grid-template-rows: 36px 36px;
+    justify-items: center;
+    align-items: center;
+    row-gap: 5px;
+    margin-bottom: 110px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .aboutProject__timeline {
+    grid-template-columns: 140px 528px;
+    margin-top: 90px;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject__timeline {
+    grid-template-columns: 100px 184px;
+    margin-top: 60px;
+    margin-bottom: 70px;
+  }
+}

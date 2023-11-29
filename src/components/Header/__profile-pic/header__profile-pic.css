@@ -1,0 +1,24 @@
+.header__profile-pic {
+    width: 12px;
+    height: 12px;
+    background-color: #0F4157;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header__profile-pic_black {
+    background-color: #313131;
+}
+
+@media screen and (max-width: 1279px) {
+  .header__profile-pic {
+    margin-top: 7px;
+    padding: 7px;
+    width: 11px;
+    height: 11px;
+  }
+}

@@ -1,0 +1,39 @@
+.navigation__button {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .navigation__button {
+    display: block;
+    background-image: url(../../../images/header__navigation.svg);
+    height: 44px;
+    width: 44px;
+    background-color: transparent;
+    border: none;
+    margin: auto 0 auto auto;
+  }
+
+  .navigation__button-close {
+    background-image: url(../../../images/nav-close.svg);
+    height: 44px;
+    position: fixed;
+    width: 44px;
+    background-color: transparent;
+    border: none;
+    right: 0;
+    margin: 23px 23px 0 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+  }
+}
+
+.navigation__button:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.navigation__button-close:hover {
+  cursor: pointer;
+  opacity: .9;
+}

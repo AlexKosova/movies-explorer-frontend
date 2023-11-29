@@ -1,0 +1,28 @@
+.header__profile-button {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    text-decoration: none;
+    min-width: 86px;
+    max-height: 32px;
+}
+
+.header__profile-button:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 1279px) {
+  .header__profile-button {
+    display: flex;
+    line-height: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    grid-area: profile;
+    min-width: 300px;
+    justify-content: center;
+  }
+}

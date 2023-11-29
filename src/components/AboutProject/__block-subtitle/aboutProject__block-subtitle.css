@@ -1,0 +1,17 @@
+.aboutProject__block-subtitle {
+    margin: 0;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject__block-subtitle {
+    grid-area: subtitle_1;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .aboutProject__block-subtitle:last-of-type {
+    grid-area: subtitle_2;
+  }
+}

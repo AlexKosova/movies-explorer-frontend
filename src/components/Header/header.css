@@ -1,0 +1,27 @@
+.header {
+    font-family: 'Inter', Courier, monospace;
+    margin: 0 auto 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: #073042;
+    min-width: 100%;
+  }
+
+.header_black {
+    background-color: #202020;
+}
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    .header {
+      max-width: 768px;
+      justify-content: space-between;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .header {
+      max-width: 320px;
+    }
+  }
+

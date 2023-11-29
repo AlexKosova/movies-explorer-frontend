@@ -1,0 +1,37 @@
+.header__button {
+  list-style-type: none;
+  text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  line-height: 40px;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  margin-left: 16px;
+}
+
+.header__button_bold {
+  font-weight: bolder;
+}
+
+.header__button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.header__button_mobile {
+  line-height: 21.78px;
+  font-size: 18px;
+  display: grid;
+  list-style-type: none;
+  text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  grid-area: links;
+}
+
+.header__button_mobile:hover {
+  cursor: pointer;
+  font-weight: 700;
+}

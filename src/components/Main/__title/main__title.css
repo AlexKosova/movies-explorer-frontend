@@ -1,0 +1,70 @@
+.main__title {
+    line-height: 26.63px;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #DADADA;
+    width: 1140px;
+}
+
+
+
+.main__title_aboutProject {
+    padding-top: 110px;
+    margin-bottom: 70px;
+}
+
+.main__title_techs {
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .main__title {
+    width: 668px;
+  }
+
+  .main__title_aboutProject {
+    padding-top: 90px;
+  }
+
+  .main__title_techs {
+    padding-top: 103px;
+  }
+
+  .main__title_aboutMe {
+    padding-bottom: 10px;
+    margin-bottom: 65px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main__title {
+    width: 284px;
+    line-height: 21px;
+    font-size: 18px;
+    letter-spacing: -.4px;
+    padding-bottom: 28px;
+  }
+
+  .main__title_aboutProject {
+    padding-top: 70px;
+    margin-bottom: 65px;
+  }
+
+  .main__title_techs {
+    padding-top: 50px;
+  }
+
+  .main__title_aboutMe {
+    width: 292px;
+    line-height: 16px;
+    padding-bottom: 28px;
+    padding-top: 75px;
+    margin-bottom: 60px;
+    grid-area: title;
+  }
+}

@@ -1,0 +1,18 @@
+.searchForm__container {
+    border-bottom: #424242 1px solid;
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .searchForm__container {
+    width: 768px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .searchForm__container {
+    width: 320px;
+  }
+}

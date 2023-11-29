@@ -1,0 +1,32 @@
+.searchForm__input {
+    max-height: 68px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    line-height: 34px;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 70px 0 11px 0;
+    min-width: 1060px;
+}
+
+.searchForm__input:focus {
+  outline: none;
+}
+
+.searchForm__input::-webkit-search-cancel-button, .searchForm__input::-webkit-search-decoration, .searchForm__input::-webkit-search-results-button, .searchForm__input::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .searchForm__input {
+    min-width: 628px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .searchForm__input {
+    min-width: 200px;
+    max-width: 200px;
+  }
+}

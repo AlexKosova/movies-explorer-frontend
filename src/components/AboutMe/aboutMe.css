@@ -1,0 +1,28 @@
+.aboutMe {
+    justify-content: center;
+    background-color: #202020;
+    height: 553px;
+    color: #fff;
+    display: grid;
+    grid-template-areas: 'title title' 'info photo';
+    grid-template-columns: 600px 540px;
+    min-width: 1140px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .aboutMe {
+    min-width: 668px;
+    grid-template-columns: 364px 304px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutMe {
+    min-width: 292px;
+    grid-template-areas: 'title' 'photo' 'info';
+    grid-template-columns: 292px;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+  }
+}
