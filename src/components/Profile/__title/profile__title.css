@@ -7,3 +7,17 @@
     margin-top: 74px;
     max-width: fit-content;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .profile__title {
+    margin-top: 236px;
+    margin-bottom: 96px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__title {
+    margin-top: 70px;
+    margin-bottom: 68px;
+  }
+}

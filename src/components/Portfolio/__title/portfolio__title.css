@@ -1,11 +1,11 @@
 .portfolio__title {
     margin: 0;
-    padding-top: 101px;
+    margin-bottom: 10px;
+    padding-top: 95px;
     font-size: 18px;
     line-height: 20px;
     font-weight: 400;
     color: #8B8B8B;
-    margin-bottom: 10px;
     min-width: 1140px;
 }
 
@@ -13,7 +13,6 @@
   .portfolio__title {
     min-width: 668px;
     padding-top: 53px;
-    margin-bottom: 20px;
   }
 }
 
@@ -22,6 +21,6 @@
     min-width: 292px;
     font-size: 14px;
     padding-top: 70px;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
   }
 }

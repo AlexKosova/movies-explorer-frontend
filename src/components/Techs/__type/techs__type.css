@@ -19,16 +19,7 @@
 @media screen and (max-width: 767px) {
   .techs__type {
     width: 84px;
-    margin: 5px;
     font-size: 12px;
     line-height: 14.52px;
-  }
-
-  .techs__type:nth-child(odd+2) {
-    grid-area: type_1;
-  }
-
-  .techs__type:nth-child(even+2) {
-    grid-area: type_2;
   }
 }

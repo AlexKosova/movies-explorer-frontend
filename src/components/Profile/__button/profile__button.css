@@ -1,5 +1,5 @@
 .profile__button {
-    margin-top:190px;
+    margin-top: 190px;
     background-color: transparent;
     border: none;
     color: #fff;
@@ -18,4 +18,16 @@
 .profile__button:hover {
   cursor: pointer;
   opacity: .8;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .profile__button {
+    margin-top: 195px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__button {
+    margin-top: 365px;
+  }
 }

@@ -1,16 +1,22 @@
 .searchForm__filterContainer {
     display: flex;
     margin: 32px 0 48px 0;
+    gap: 14px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .searchForm__filterContainer {
-    justify-content: flex-end;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    gap: 16px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .searchForm__filterContainer {
     justify-content: center;
+    flex-direction: row-reverse;
+    margin-top: 41px;
+    margin-bottom: 21px;
   }
 }

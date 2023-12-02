@@ -5,11 +5,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 110px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .portfolio {
     padding-bottom: 90px;
+    padding-top: 185px;
   }
 }
 
@@ -18,5 +20,6 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
+    padding-bottom: 0;
   }
 }

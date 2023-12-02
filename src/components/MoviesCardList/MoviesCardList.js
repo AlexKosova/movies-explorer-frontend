@@ -20,7 +20,7 @@ export default function MoviesCardList({ cards }) {
       <ul className="moviesCardList">
       {list.map((data) => <MoviesCard card={data} />)}
       </ul>
-      {cards.length > nowShowing ? <button onClick={showMore} class="moviesCard__moreButton">Ещё</button> : ''}
+      {cards.length > nowShowing ? <button onClick={showMore} className="moviesCard__moreButton">Ещё</button> : ''}
     </>
   );
 }

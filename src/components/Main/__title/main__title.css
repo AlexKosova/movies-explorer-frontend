@@ -7,9 +7,13 @@
     padding-bottom: 23px;
     border-bottom: 1px solid #DADADA;
     width: 1140px;
+    letter-spacing: -1.2px;
 }
 
-
+.main__title_aboutMe {
+  padding-top: 100px;
+  margin-bottom: 70px;
+}
 
 .main__title_aboutProject {
     padding-top: 110px;
@@ -17,7 +21,7 @@
 }
 
 .main__title_techs {
-    padding-top: 100px;
+    padding-top: 90px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -36,7 +40,7 @@
   }
 
   .main__title_aboutMe {
-    padding-bottom: 10px;
+    padding-top: 91px;
     margin-bottom: 65px;
   }
 }
@@ -62,7 +66,7 @@
   .main__title_aboutMe {
     width: 292px;
     line-height: 16px;
-    padding-bottom: 28px;
+    padding-bottom: 30px;
     padding-top: 75px;
     margin-bottom: 60px;
     grid-area: title;

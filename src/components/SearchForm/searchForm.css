@@ -3,16 +3,21 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .searchForm {
-    max-width: 768px;
+    min-width: 708px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 0;
   }
 }
 
 @media screen and (max-width: 767px) {
   .searchForm {
     max-width: 320px;
+    margin-top: 0;
   }
 }

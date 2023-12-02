@@ -8,5 +8,7 @@
     line-height: 16px;
     grid-area: text;
     max-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }

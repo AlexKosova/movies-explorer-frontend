@@ -22,33 +22,33 @@ export default function Auth({
   return (
     <section className="auth">
       <div className="auth__container">
-        <img className="header__logo header__logo_auth" src={logo} alt="лого"/>
+        <a href='/'><img className="header__logo header__logo_auth" src={logo} alt="лого"/></a>
         <h1 className="auth_title">{title}</h1>
         <form className="auth__form">
-          {children}
+            {children}
           <label for="userEmailInput" className="auth__input_label">E-mail</label>
           <input
-          className="auth__input"
-          onChange={handleEmail}
-          type="email"
-          minlength="2"
-          maxlength="40"
-          value={email}
-          id="userEmailInput"/>
+            className="auth__input"
+            onChange={handleEmail}
+            type="email"
+            minlength="2"
+            maxlength="40"
+            value={email}
+            id="userEmailInput"/>
           <span className="error" id="userEmailInput-error"></span>
           <label for="userPassInput" className="auth__input_label">Пароль</label>
           <input
-          onChange={handlePass}
-          className={ window.location.pathname === '/sign-up' ? 'auth__input' : 'auth__input auth__input__signin'}
-          type="password"
-          minlength="2"
-          maxlength="40"
-          value={pass}
-          id="userPassInput"/>
+            onChange={handlePass}
+            className={ window.location.pathname === '/signup' ? 'auth__input' : 'auth__input auth__input__signin'}
+            type="password"
+            minlength="2"
+            maxlength="40"
+            value={pass}
+            id="userPassInput"/>
           <span className="error" id="userPassInput-error"></span>
           <button type='submit' className="auth__button auth__button_short">{buttonText}</button>
         </form>
-        <p className="auth__postscriptLink">{postGreyText}<a className="auth__postscriptLink_blue" href={window.location.pathname === '/sign-up' ? '/sign-in' : '/sign-up'}>{postBlueText}</a></p>
+        <p className="auth__postscriptLink">{postGreyText}<a className="auth__postscriptLink_blue" href={window.location.pathname === '/signup' ? '/signin' : '/signup'}>{postBlueText}</a></p>
       </div>
     </section>
   );

@@ -1,0 +1,30 @@
+.portfolio__project {
+  width: 1140px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  padding-bottom: 19px;
+  display: flex;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.portfolio__project:last-child {
+  border-bottom: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .portfolio__project {
+    width: 668px;
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__project {
+    width: 292px;
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+}

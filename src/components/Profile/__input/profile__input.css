@@ -24,3 +24,15 @@
     margin: 0;
     padding: 0;
 }
+
+
+@media screen and (max-width: 767px) {
+  .profile__input {
+    margin-bottom: 17px;
+  }
+
+  .profile__input_label {
+    position: relative;
+    top: 15px;
+}
+}

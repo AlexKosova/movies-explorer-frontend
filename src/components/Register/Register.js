@@ -9,7 +9,7 @@ export default function Register() {
   }
 
   return (
-    <section class="register">
+    <main class="register">
       <Auth
     title="Добро пожаловать!"
     buttonText="Зарегестрироваться"
@@ -30,6 +30,6 @@ export default function Register() {
           <span className="error" id="userNameInput-error"></span>
       </>}
       />
-    </section>
+    </main>
   );
 }

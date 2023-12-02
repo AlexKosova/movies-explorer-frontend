@@ -1,11 +1,12 @@
 .moviesCard {
     width: 270px;
     background-color: #222222;
-    border-radius: 20px;
+    border-radius: 10px;
     display: grid;
     grid-template-areas: 'pic' 'text';
     grid-template-columns: 270px;
     grid-template-rows: 151px 67px;
+    overflow: hidden;
 }
 
 .moviesCard:hover {
@@ -24,7 +25,9 @@
 
 @media screen and (max-width: 767px) {
   .moviesCard {
-    max-width: 300px;
-    max-height: 235px;
+    width: 300px;
+    height: 235px;
+    grid-template-columns: 300px;
+    grid-template-rows: 168px 67px;
   }
 }

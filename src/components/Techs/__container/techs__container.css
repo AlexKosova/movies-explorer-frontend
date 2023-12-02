@@ -19,13 +19,7 @@
   .techs__container {
     padding-top: 65px;
     max-width: 292px;
-    display: grid;
-    grid-template-columns: 84px 84px;
-    column-gap: 5px;
-    grid-template-areas: 'title title' 'about about' 'type_1 type_2';
     height: fit-content;
-    justify-items: center;
-    justify-content: center;
     padding-bottom: 65px;
   }
 }
