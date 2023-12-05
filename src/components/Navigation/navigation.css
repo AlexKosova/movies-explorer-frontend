@@ -2,10 +2,6 @@
   min-width: 730px;
   display: flex;
 }
-/*
-li:last-child {
-  margin-left: auto;
-} */
 
 .navigation_blur::before {
     content: " ";
@@ -15,7 +11,7 @@ li:last-child {
     min-height: 100%;
     background-color: #202020;
     opacity: .9;
-    z-index: -1;
+    z-index: 2;
     top: 0;
     right: 0;
     bottom: 0;

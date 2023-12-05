@@ -15,7 +15,7 @@
     cursor: text;
 }
 
-.auth__input_label {
+.auth__input-label {
     font-size: 10px;
     line-height: 12.1px;
     font-weight: 400;
@@ -24,7 +24,7 @@
     bottom: 10px;
 }
 
-.auth__input__signin {
+.auth__input-signin {
   margin-bottom: 112px;
 }
 @media screen and (max-width: 767px) {
@@ -32,7 +32,7 @@
     width: 260px;
     padding:  15px 0 15px 0;
   }
-  .auth__input_label {
+  .auth__input-label {
     font-size: 10px;
     line-height: 12.1px;
     font-weight: 400;

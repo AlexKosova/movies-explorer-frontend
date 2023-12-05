@@ -18,7 +18,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: 3;
   padding: 144px 0 90px 0;
   grid-template-areas: 'links' 'profile';
   background-color: #202020;
@@ -28,7 +28,7 @@
   content: " ";
   position: fixed;
   min-width: 100%;
-  z-index: -1;
+  z-index: 1;
   min-height: 100%;
 
 }
@@ -51,7 +51,7 @@
   .navigation__container {
     display: none;
   }
-  
+
   .navigation__container_visible {
     width: 100%;
     padding: 130px 0 0 0;

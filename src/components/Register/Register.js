@@ -17,7 +17,7 @@ export default function Register() {
     postBlueText="Войти"
     children={
       <>
-      <label for="userNameInput" className="auth__input_label">Имя</label>
+      <label for="userNameInput" className="auth__input-label">Имя</label>
           <input
           onChange={handleName}
           className="auth__input"
@@ -26,6 +26,7 @@ export default function Register() {
           maxlength="40"
           name="userName"
           id="userNameInput"
+          placeholder='Имя'
           value={userName}/>
           <span className="error" id="userNameInput-error"></span>
       </>}

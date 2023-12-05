@@ -2,16 +2,22 @@
     margin-top: 190px;
     background-color: transparent;
     border: none;
-    color: #fff;
     font-size: 13px;
     line-height: 15.7px;
     font-weight: 400;
-    text-decoration: none;
+    color: #fff;
+}
 
+.profile__button-text {
+  color: #fff;
+  text-decoration: none;
 }
 
 .profile__button:last-of-type {
-    margin-top: 15px;
+  margin-top: 15px;
+}
+
+.profile__button-text:last-of-type {
     color: #EE3465;
 }
 

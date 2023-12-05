@@ -29,6 +29,7 @@
   text-decoration: none;
   font-weight: 400;
   grid-area: links;
+  z-index: 5;
 }
 
 .header__button_mobile:hover {

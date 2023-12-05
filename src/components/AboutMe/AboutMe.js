@@ -11,7 +11,7 @@ export default function AboutMe() {
           <p className="aboutMe__text">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
           <a target="_blank" href="https://github.com/AlexKosova" className="aboutMe__link">Github</a>
         </div>
-        <img className="aboutMe__photo" src={photo} alt="моё фото"/>
+        <img className="aboutMe__photo" src={photo} alt="фото студента"/>
     </section>
   );
 }

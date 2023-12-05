@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 export default function SearchForm({ onSubmit }) {
   const [searchHistoryValue, setSearchHistoryValue] = React.useState('');
@@ -30,13 +31,10 @@ export default function SearchForm({ onSubmit }) {
     <section class="searchForm">
       <form onSubmit={handleSubmit}>
         <div className="searchForm__container">
-          <input class="searchForm__input" id="filmInput" name='searchHistoryValue' type="search" placeholder="Введите название фильма" value={searchHistoryValue} onChange={handleChange} minlength="2"/>
-        <button type='button' class="searchForm__button"></button>
+          <input class="searchForm__input" id="filmInput" name='searchHistoryValue' type="search" placeholder="Фильм" value={searchHistoryValue} onChange={handleChange} minlength="2" maxLength="40"/>
+        <button type='submit' class="searchForm__button"></button>
         </div>
-        <div class="searchForm__filterContainer">
-          <input type="checkbox" id="filmFilter" class="searchForm__filter"/>
-          <label for="filmFilter">Короткометражки</label>
-        </div>
+        <FilterCheckbox/>
       </form>
     </section>
   );

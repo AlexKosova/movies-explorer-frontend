@@ -1,6 +1,6 @@
 .main {
     font-family: 'Inter', Courier, monospace;
-    min-width: 100%;
+    min-width: 100vmax;
     background-color: #073042;
 }
 

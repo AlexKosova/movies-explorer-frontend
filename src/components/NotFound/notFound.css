@@ -1,7 +1,6 @@
 .notFound {
   display: flex;
   background-color: #202020;
-  min-width: 1280px;
   width: 100%;
   font-family: 'Inter', Courier, monospace;
   height: 700px;
