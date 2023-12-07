@@ -24,6 +24,7 @@ export default function Register() {
           type="text"
           minlength="2"
           maxlength="40"
+          required
           name="userName"
           id="userNameInput"
           placeholder='Имя'

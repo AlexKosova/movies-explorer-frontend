@@ -3,43 +3,54 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import api from '../../utils/MoviesApi.js';
+import movieApi from '../../utils/MoviesApi';
+// import api from '../../utils/MainApi';
 
 export default function Movies() {
   const [cards, setCards] = React.useState([]);
+  const [filteredCards, setFilteredCards] = React.useState([]);
   const [initialCards, setInitialCards] = React.useState([]);
-  // const [shortMovies, setShortMovies] = React.useState(
-  // JSON.parse(localStorage.getItem('shortMovies')) || false);
-  // const [shortSavedMovies, setShortSavedMovies] = React.useState(
-  // JSON.parse(localStorage.getItem('shortSavedMovies')) || false);
+  const [shortMovieToggle, setShortMovieToggle] = React.useState(false);
+
+  // currentCards = setShortMovies;
+  //   localStorage.setItem('shortMovies', JSON.stringify(shortMovies));
 
   function handleSearch(data) {
-    const filteredCards = initialCards.filter(({ nameRU }) => {
+    let filteredItems = initialCards.filter(({ nameRU, nameEN }) => {
       if (nameRU.toLowerCase().includes(data.toLowerCase())) return true;
+      if (nameEN.toLowerCase().includes(data.toLowerCase())) return true;
       return false;
     });
+    setCards(filteredItems);
+    localStorage.setItem('cards', JSON.stringify(filteredItems));
 
-    setCards(filteredCards);
-    localStorage.setItem('cards', JSON.stringify(filteredCards));
-    localStorage.setItem('searchHistoryValue', data);
-  }
-
-  React.useEffect(() => {
-    api.getMovies()
-      .then((res) => { setInitialCards(res); setCards(res); });
-  }, []);
-
-  function checkDuration(shortMovies) {
-    let currentCards = cards;
-    if (currentCards && shortMovies) {
-      currentCards = currentCards.filter((card) => {
-        if (card.duration < 60) return true;
+    if (shortMovieToggle) {
+      filteredItems = filteredItems.filter((card) => {
+        if (Number(card.duration) < 40) return true;
         return false;
       });
     }
-    currentCards = setCards;
-    localStorage.setItem('shortMovie', JSON.stringify(shortMovies));
+
+    localStorage.setItem('shortMovies', JSON.stringify(filteredItems));
+    return setFilteredCards(filteredItems);
   }
+
+  const checkDuration = (shortMovies) => {
+    let filteredCardList = cards;
+    setShortMovieToggle(shortMovies);
+    if (shortMovieToggle) {
+      filteredCardList = filteredCardList.filter((card) => Number(card.duration) < 40);
+    }
+    console.log(filteredCardList);
+    localStorage.setItem('shortMovies', JSON.stringify(filteredCardList));
+
+    return setFilteredCards(filteredCardList);
+  };
+
+  React.useEffect(() => {
+    movieApi.getMovies()
+      .then((res) => { setInitialCards(res); setCards(res); });
+  }, []);
 
   return (
     <>
@@ -48,7 +59,7 @@ export default function Movies() {
       <SearchForm
       onSubmit={handleSearch}
       onChecked={checkDuration}/>
-      <MoviesCardList cards={cards} />
+      <MoviesCardList cards={filteredCards} />
     </main>
     <Footer/>
     </>

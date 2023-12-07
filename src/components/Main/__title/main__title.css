@@ -60,14 +60,14 @@
   }
 
   .main__title_techs {
-    padding-top: 50px;
+    padding-top: 55px;
   }
 
   .main__title_aboutMe {
     width: 292px;
     line-height: 16px;
     padding-bottom: 30px;
-    padding-top: 75px;
+    padding-top: 78px;
     margin-bottom: 60px;
     grid-area: title;
   }

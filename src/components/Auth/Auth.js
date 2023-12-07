@@ -34,6 +34,7 @@ export default function Auth({
             type="email"
             minlength="2"
             maxlength="40"
+            required
             value={email}
             id="userEmailInput"/>
           <span className="error" id="userEmailInput-error"></span>
@@ -45,10 +46,11 @@ export default function Auth({
             type="password"
             minlength="2"
             maxlength="40"
+            required
             value={pass}
             id="userPassInput"/>
           <span className="error" id="userPassInput-error"></span>
-          <button type='submit' className="auth__button auth__button_short">{buttonText}</button>
+          <button type='submit' className={`${window.location.pathname === '/signup' ? 'auth__button auth__button_short' : 'auth__button auth__button_short auth__button-mobile'}  `}>{buttonText}</button>
         </form>
         <p className="auth__postscriptLink">{postGreyText}<a className="auth__postscriptLink-blue" href={window.location.pathname === '/signup' ? '/signin' : '/signup'}>{postBlueText}</a></p>
       </div>

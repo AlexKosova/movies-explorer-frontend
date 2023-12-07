@@ -1,10 +1,11 @@
 .movies {
     background-color: #202020;
-    min-width: 100%;
+    width: 100%;
     font-family: 'Inter', Courier, monospace;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -12,6 +13,7 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: nowrap;
+    padding-bottom: 15px;
   }
 }
 
@@ -20,5 +22,6 @@
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: column;
+    padding-bottom: 0;
   }
 }

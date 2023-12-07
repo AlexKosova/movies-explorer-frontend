@@ -15,32 +15,14 @@ class Api {
       });
   }
 
-  getProfileInfo() {
-    return this._request(`${this._url}/profile`, {
-      headers: this._headers,
-    });
-  }
-
-  getProjectInfo() {
-    return this._request(`${this._url}/`, {
-      headers: this._headers,
-    });
-  }
-
   getMovies() {
     return this._request(`${this._url}`, {
       headers: this._headers,
     });
   }
-
-  getSavedMovies() {
-    return this._request(`${this._url}/saved-movies`, {
-      headers: this._headers,
-    });
-  }
 }
 
-const api = new Api({
+const movieApi = new Api({
   baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
   headers: {
     // authorization: 'fb85a167-fa0c-4b77-b6c4-6e80ca894d63',
@@ -48,4 +30,4 @@ const api = new Api({
   },
 });
 
-export default api;
+export default movieApi;

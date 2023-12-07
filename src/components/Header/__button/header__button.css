@@ -2,12 +2,14 @@
   list-style-type: none;
   text-decoration: none;
   color: #fff;
-  text-decoration: none;
   line-height: 40px;
   font-size: 13px;
   font-weight: 400;
-  margin: 0;
-  margin-left: 16px;
+  margin: 16px 0 0 50px;
+}
+
+.header__button:nth-child(3) {
+  margin-left: 18px;
 }
 
 .header__button_bold {

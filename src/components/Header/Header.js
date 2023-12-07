@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/header__logo.svg';
 import Navigation from '../Navigation/Navigation';
 
@@ -5,11 +6,11 @@ export default function Header() {
   return (
     <header className={ window.location.pathname === '/' ? 'header' : 'header header_color'}>
       <div className="header__container">
-        <a href='/'><img className="logo" src={logo} alt="Логотип"/></a>
+        <NavLink to='/'><img className="logo" src={logo} alt="Логотип"/></NavLink>
         { window.location.pathname === '/'
           ? <nav className="header__guest">
-          <a href="/signup" className="header__signup">Регистрация</a>
-          <a href="/signin" className="header__signin">Войти</a>
+          <NavLink to="/signup" className="header__signup">Регистрация</NavLink>
+          <NavLink to="/signin" className="header__signin">Войти</NavLink>
         </nav>
           : <Navigation />
         }

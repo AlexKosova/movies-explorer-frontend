@@ -7,11 +7,14 @@
     background-color: transparent;
     text-decoration: none;
     min-width: 100px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     max-height: 32px;
     margin-top: 19px;
 }
 
-.header__profile-button_hidden {
+.header__profile-hideButton {
   display: none;
 }
 

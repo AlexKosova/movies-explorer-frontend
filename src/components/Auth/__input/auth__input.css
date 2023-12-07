@@ -13,6 +13,13 @@
     text-overflow: ellipsis;
     outline: none;
     cursor: text;
+    -webkit-box-shadow: inset 0 0 0 50px #2F2F2F;
+    -webkit-text-fill-color: #fff;
+    -webkit-border-image: none;
+}
+
+.auth__input:focus {
+  outline: none;
 }
 
 .auth__input-label {
@@ -31,6 +38,7 @@
   .auth__input {
     width: 260px;
     padding:  15px 0 15px 0;
+    margin-bottom: 30px;
   }
   .auth__input-label {
     font-size: 10px;

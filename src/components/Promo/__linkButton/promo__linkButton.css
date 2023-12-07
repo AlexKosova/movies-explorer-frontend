@@ -1,4 +1,39 @@
 .promo__linkButton {
   text-decoration: none;
-  color: #fff;
+  padding: 8px 0;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  max-width: 129px;
+  display: flex;
+  margin-top: 146px;
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+  border: solid rgba(255, 255, 255, .4) 1px;
+}
+
+.promo__linkButton:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .promo__linkButton {
+    margin-top: 92px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 76px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .promo__linkButton {
+    margin-top: 82px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
 }

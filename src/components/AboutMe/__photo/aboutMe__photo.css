@@ -1,24 +1,25 @@
 .aboutMe__photo {
     margin: 0;
-    max-height: 327px;
-    max-width: 270px;
+    height: 327px;
+    overflow: hidden;
+    width: 270px;
     grid-area: photo;
     margin-left: auto;
+    border-radius: 10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .aboutMe__photo {
-    max-height: 307px;
-    max-width: 255px;
-    grid-area: photo;
+    height: 307px;
+    width: 255px;
     margin-left: auto;
   }
 }
 
 @media screen and (max-width: 767px) {
   .aboutMe__photo {
-    max-width: 292px;
-    max-height: 352px;
+    width: 292px;
+    height: 352px;
     grid-area: photo;
   }
 }

@@ -1,12 +1,17 @@
 .aboutMe {
     justify-content: center;
     background-color: #202020;
+    padding: 0;
+    margin: 0 auto;
     height: 553px;
     color: #fff;
     display: grid;
-    grid-template-areas: 'title title' 'info photo';
+    grid-template-areas:
+    "title title"
+    "info photo";
     grid-template-columns: 600px 540px;
-    min-width: 1140px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <>
     <Header/>
-    <main className="main">
+    <main className="main" id='main'>
       <Promo />
       <AboutProject />
       <Techs />

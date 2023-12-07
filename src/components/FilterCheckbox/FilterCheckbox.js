@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-export default function FilterCheckbox({
-  onChecked,
-}) {
+export default function FilterCheckbox({ onChecked }) {
   const [shortMovies, setShortMovies] = React.useState(false);
-  useEffect(() => {
+  React.useEffect(() => {
     if (window.location.pathname === '/movies') {
       localStorage.getItem('shortMovies');
       setShortMovies(JSON.parse(shortMovies));
@@ -18,7 +16,7 @@ export default function FilterCheckbox({
 
   return (
     <div class="searchForm__filterContainer">
-      <input onChange={() => handleShortMovie} onChecked={shortMovies} type="checkbox" id="filmFilter" class="searchForm__filter"/>
+      <input onChange={handleShortMovie} checked={shortMovies ?? false} type="checkbox" id="filmFilter" class="searchForm__filter"/>
       <label for="filmFilter">Короткометражки</label>
     </div>
   );

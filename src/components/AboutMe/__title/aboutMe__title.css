@@ -11,7 +11,6 @@
   .aboutMe__title {
     line-height: 40px;
     font-size: 40px;
-    grid-area: title;
   }
 }
 
