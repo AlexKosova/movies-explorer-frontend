@@ -1,19 +1,25 @@
 .aboutMe__container {
-    max-width: 600px;
-    grid-area: info;
+    width: 600px;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 270px;
+    justify-content: space-between;
+    padding: 0;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .aboutMe__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    margin-right: 49px;
+    height: 307px;
+    width: 364px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .aboutMe__container {
-    max-width: 292px;
+    width: 292px;
     justify-content: center;
     height: fit-content;
     margin: 0 auto 0 auto;

@@ -8,6 +8,9 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 export default function Main() {
+  // const width = useState(window.innerWidth);
+  // const main = document.getElementsByClassName('main');
+  // main.style.cssText = `width: ${width}`;
   return (
     <>
     <Header/>

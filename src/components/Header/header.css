@@ -18,7 +18,6 @@
     .header {
       justify-content: space-between;
       padding: 0;
-      max-width: 768px;
       min-width: 708px;
     }
   }

@@ -5,7 +5,7 @@
   justify-content: flex-start;
 }
 
-.navigation__container_visible {
+.navigation__VisibleContainer {
   list-style-type: none;
   position: fixed;
   display: flex;
@@ -24,7 +24,7 @@
   background-color: #202020;
 }
 
-.navigation__container_visible::before {
+.navigation__VisibleContainer::before {
   content: " ";
   position: fixed;
   min-width: 100%;
@@ -52,7 +52,7 @@
     display: none;
   }
 
-  .navigation__container_visible {
+  .navigation__VisibleContainer {
     width: 100%;
     padding: 130px 0 0 0;
     gap: 24px;

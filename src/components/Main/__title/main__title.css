@@ -13,6 +13,9 @@
 .main__title_aboutMe {
   padding-top: 100px;
   margin-bottom: 70px;
+  width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main__title_aboutProject {
@@ -41,7 +44,7 @@
 
   .main__title_aboutMe {
     padding-top: 91px;
-    margin-bottom: 65px;
+    margin-bottom: 40px;
   }
 }
 

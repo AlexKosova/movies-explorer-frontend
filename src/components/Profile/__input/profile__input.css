@@ -12,6 +12,10 @@
     text-overflow:ellipsis;
 }
 
+input:focus {
+  opacity: .7;
+}
+
 .profile__input::placeholder {
     color: #fff;
     font-size: 11px;

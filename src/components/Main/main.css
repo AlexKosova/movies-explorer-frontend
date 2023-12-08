@@ -1,7 +1,5 @@
 .main {
     font-family: 'Inter', Courier, monospace;
     background-color: #073042;
-    margin: 0 auto;
-    padding: 0;
-    width: 98vw;
+    width: 100%;
 }

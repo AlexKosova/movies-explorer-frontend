@@ -4,7 +4,6 @@
     overflow: hidden;
     width: 270px;
     grid-area: photo;
-    margin-left: auto;
     border-radius: 10px;
 }
 

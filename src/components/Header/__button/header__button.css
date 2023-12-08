@@ -21,7 +21,7 @@
   opacity: .8;
 }
 
-.header__button_mobile {
+.header__mobileButton {
   line-height: 21.78px;
   font-size: 18px;
   display: grid;
@@ -34,7 +34,7 @@
   z-index: 5;
 }
 
-.header__button_mobile:hover {
+.header__mobileButton:hover {
   cursor: pointer;
   font-weight: 700;
 }

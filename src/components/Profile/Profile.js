@@ -27,7 +27,16 @@ export default function Profile() {
         <h1 className="profile__title">{`Привет, ${user.name}!`}</h1>
           <div className="profile__input-container">
             <p className="profile__label">Имя</p>
-            <input disabled={!isEdit} onChange={handleChangeInfo} name='name' className="profile__input" id="inputName" type="text" value={user.name}/>
+            <input
+            disabled={!isEdit}
+            onChange={handleChangeInfo}
+            name='name'
+            className="profile__input"
+            id="inputName"
+            type="text"
+            minLength="2"
+            maxLength="40"
+            value={user.name}/>
           </div>
           <div className="profile__input-container">
             <p className="profile__label">E-mail</p>

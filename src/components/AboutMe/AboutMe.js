@@ -3,8 +3,8 @@ import photo from '../../images/aboutMe_photo.jpg';
 
 export default function AboutMe() {
   return (
-    <section className="aboutMe">
-        <h2 className="main__title main__title_aboutMe">Студент</h2>
+    <section className="aboutMe"><h2 className="main__title main__title_aboutMe">Студент</h2>
+      <div className='aboutMe__wrapper'>
         <div className="aboutMe__container">
           <h3 className="aboutMe__title">Виталий</h3>
           <p className="aboutMe__subtitle">Фронтенд-разработчик, 30 лет</p>
@@ -12,6 +12,7 @@ export default function AboutMe() {
           <a target="_blank" href="https://github.com/AlexKosova" className="aboutMe__link">Github</a>
         </div>
         <img className="aboutMe__photo" src={photo} alt="фото студента"/>
+      </div>
     </section>
   );
 }
