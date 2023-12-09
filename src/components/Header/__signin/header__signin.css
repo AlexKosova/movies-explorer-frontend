@@ -13,6 +13,7 @@
 
 .header__signin:hover {
   opacity: .9;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {

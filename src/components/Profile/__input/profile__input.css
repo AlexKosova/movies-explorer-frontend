@@ -12,6 +12,10 @@
     text-overflow:ellipsis;
 }
 
+input:focus {
+  opacity: .7;
+}
+
 .profile__input::placeholder {
     color: #fff;
     font-size: 11px;
@@ -19,8 +23,20 @@
     line-height: 13.3px;
 }
 
-.profile__input_label {
+.profile__label {
     width: 90px;
     margin: 0;
     padding: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+  .profile__input {
+    margin-bottom: 17px;
+    width: 200px;
+  }
+
+  .profile__label {
+    width: 40px;
+  }
 }

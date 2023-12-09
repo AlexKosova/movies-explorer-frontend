@@ -1,17 +1,5 @@
 .main {
     font-family: 'Inter', Courier, monospace;
-    min-width: 100%;
     background-color: #073042;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .main {
-    max-width: 708px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .main {
-    max-width: 320px;
-  }
+    width: 100%;
 }

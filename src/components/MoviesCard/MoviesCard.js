@@ -8,12 +8,15 @@ export default function MoviesCard({ card }) {
     return `${hours ? `${hours}ч` : ''} ${minutes}м`.trim();
   }
 
+  // function handleLikeMovies (e) {
+  //   e.preventDefault();
+  // }
   return (
     <li className="moviesCard">
-      <img src={card.image} className="moviesCard__image" alt="превью"/>
-    <h6 className="moviesCard__title">{card.title}</h6>
-    <button onClick={card.saved} className={card.saved ? 'moviesCard__button moviesCard__button_active' : 'moviesCard__button'} type="button"></button>
-    <p className="moviesCard__time">{getTime(card.time)}</p>
+    <img src={ `https://api.nomoreparties.co/${card.image.url}` } className="moviesCard__image" alt={card.nameRu}/>
+    <h2 className="moviesCard__title">{card.nameRU}</h2>
+    <button type="button" onClick={card.saved} className={card.saved ? 'moviesCard__button moviesCard__button_active' : 'moviesCard__button'} ></button>
+    <p className="moviesCard__time">{getTime(card.duration)}</p>
     </li>
   );
 }

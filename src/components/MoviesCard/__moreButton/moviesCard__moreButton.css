@@ -1,4 +1,4 @@
-.moviesCard__moreButton {
+.movies__moreButton {
     color: #fff;
     font-size: 12px;
     line-height: 14.5px;
@@ -14,20 +14,20 @@
     max-height: 36px;
 }
 
-.moviesCard__moreButton:hover {
+.movies__moreButton:hover {
   cursor: pointer;
   border: 1px white solid;
   transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .moviesCard__moreButton {
+  .movies__moreButton {
     max-width: 320px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .moviesCard__moreButton {
+  .movies__moreButton {
     max-width: 240px;
     min-width: 240px;
   }

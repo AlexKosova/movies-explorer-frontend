@@ -33,12 +33,20 @@
 
 @media screen and (max-width: 767px) {
   .auth__button {
-    margin-top: 157px;
+    margin-top: 150px;
   }
   .auth__button_short {
     min-width: 260px;
 }
 .auth__button_long {
   min-width: 260px;
+}
+
+.auth__button-mobile {
+  margin-top: 240px;
+}
+
+.auth__button-save {
+  margin-top: 345px;
 }
 }

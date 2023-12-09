@@ -9,7 +9,7 @@ export default function Register() {
   }
 
   return (
-    <section class="register">
+    <main class="register">
       <Auth
     title="Добро пожаловать!"
     buttonText="Зарегестрироваться"
@@ -17,19 +17,21 @@ export default function Register() {
     postBlueText="Войти"
     children={
       <>
-      <label for="userNameInput" className="auth__input_label">Имя</label>
+      <label for="userNameInput" className="auth__input-label">Имя</label>
           <input
           onChange={handleName}
           className="auth__input"
           type="text"
           minlength="2"
           maxlength="40"
+          required
           name="userName"
           id="userNameInput"
+          placeholder='Имя'
           value={userName}/>
           <span className="error" id="userNameInput-error"></span>
       </>}
       />
-    </section>
+    </main>
   );
 }

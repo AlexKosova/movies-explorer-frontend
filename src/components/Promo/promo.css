@@ -1,11 +1,13 @@
 .promo {
     color: #fff;
     display: flex;
-    max-height: 574px;
+    padding: 0;
+    background-color: #073042;
+    margin: 0 auto;
     max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
+    max-height: 574px;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

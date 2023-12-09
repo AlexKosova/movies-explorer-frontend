@@ -3,10 +3,10 @@ import React from 'react';
 export default function aboutProject() {
   return (
     <section id='aboutProject' className="aboutProject">
-        <h4 className="main__title main__title_aboutProject">О проекте</h4>
+        <h2 className="main__title main__title_aboutProject">О проекте</h2>
         <div className="aboutProject__block">
-          <h4 className="aboutProject__block-title">Дипломный проект включал 5 этапов</h4>
-          <h4 className="aboutProject__block-title">На выполнение диплома ушло 5 недель</h4>
+          <h3 className="aboutProject__block-title">Дипломный проект включал 5 этапов</h3>
+          <h3 className="aboutProject__block-title">На выполнение диплома ушло 5 недель</h3>
           <p className="aboutProject__block-subtitle">Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
           <p className="aboutProject__block-subtitle">У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
         </div>

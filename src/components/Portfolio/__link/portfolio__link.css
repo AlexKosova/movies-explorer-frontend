@@ -1,16 +1,14 @@
 .portfolio__link {
-    padding-top: 40px;
     max-width: 1140px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px solid #424242;
 }
 
-.portfolio__link_theLast {
-    border: none;
+.portfolio__link:last-child {
+  border: none;
 }
 
 .portfolio__link:hover {
@@ -21,7 +19,6 @@
   .portfolio__link {
     max-width: 668px;
     width: 100%;
-    padding-top: 10px;
   }
 }
 
@@ -29,7 +26,7 @@
   .portfolio__link {
     max-width: 292px;
     width: 100%;
-    padding-top: 20px;
     padding-bottom: 19px;
+    padding-top: 10px;
   }
 }

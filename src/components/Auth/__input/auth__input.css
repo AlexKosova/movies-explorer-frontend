@@ -13,9 +13,16 @@
     text-overflow: ellipsis;
     outline: none;
     cursor: text;
+    -webkit-box-shadow: inset 0 0 0 50px #2F2F2F;
+    -webkit-text-fill-color: #fff;
+    -webkit-border-image: none;
 }
 
-.auth__input_label {
+.auth__input:focus {
+  outline: none;
+}
+
+.auth__input-label {
     font-size: 10px;
     line-height: 12.1px;
     font-weight: 400;
@@ -24,15 +31,16 @@
     bottom: 10px;
 }
 
-.auth__input__signin {
+.auth__input-signin {
   margin-bottom: 112px;
 }
 @media screen and (max-width: 767px) {
   .auth__input {
     width: 260px;
     padding:  15px 0 15px 0;
+    margin-bottom: 30px;
   }
-  .auth__input_label {
+  .auth__input-label {
     font-size: 10px;
     line-height: 12.1px;
     font-weight: 400;

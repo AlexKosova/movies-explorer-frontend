@@ -1,28 +1,41 @@
 .aboutMe {
-    justify-content: center;
-    background-color: #202020;
-    height: 553px;
-    color: #fff;
-    display: grid;
-    grid-template-areas: 'title title' 'info photo';
-    grid-template-columns: 600px 540px;
-    min-width: 1140px;
+  background-color: #202020;
+  width: 100%;
+  color: #fff;
+  height: 553px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.aboutMe__wrapper {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1140px;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .aboutMe {
-    min-width: 668px;
-    grid-template-columns: 364px 304px;
+    flex-wrap: nowrap;
+    display: block;
+  }
+  .aboutMe__wrapper {
+    height: 364px;
+    width: 668px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .aboutMe {
+    height: fit-content;
+  }
+  .aboutMe__wrapper {
+    display: grid;
     min-width: 292px;
     grid-template-areas: 'title' 'photo' 'info';
-    grid-template-columns: 292px;
     flex-direction: column;
-    height: fit-content;
     align-items: center;
   }
 }

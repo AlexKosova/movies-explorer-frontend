@@ -4,13 +4,13 @@
     font-weight: 400;
     margin: 0;
     grid-area: title;
+    letter-spacing: -2px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .aboutMe__title {
     line-height: 40px;
     font-size: 40px;
-    grid-area: title;
   }
 }
 

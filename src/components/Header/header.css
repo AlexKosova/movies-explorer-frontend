@@ -1,27 +1,35 @@
 .header {
     font-family: 'Inter', Courier, monospace;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
+    padding: 0 70px;
     display: flex;
     justify-content: center;
     background-color: #073042;
-    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-.header_black {
+.header_color {
     background-color: #202020;
+    min-width: 1280px;
 }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     .header {
-      max-width: 768px;
       justify-content: space-between;
       padding: 0;
+      min-width: 708px;
     }
   }
 
   @media screen and (max-width: 767px) {
     .header {
-      max-width: 320px;
+      padding: 0;
     }
+    .header_color {
+      background-color: #202020;
+      max-width: 320px;
+      min-width: 300px;
+  }
   }
 

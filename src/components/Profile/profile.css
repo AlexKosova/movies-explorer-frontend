@@ -1,10 +1,16 @@
 .profile {
-    background-color: #202020;
-    min-width: 100vw;
-    height: 626px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    font-family: 'Inter', Courier, monospace;
+  background-color: #202020;
+  font-family: 'Inter', Courier, monospace;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .profile {
+    height: 750px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    height: 706px;
+  }
 }

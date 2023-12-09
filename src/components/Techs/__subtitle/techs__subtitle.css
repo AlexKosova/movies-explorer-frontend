@@ -1,10 +1,11 @@
 .techs__subtitle {
-    width: 490px;
+    width: 460px;
     text-align: center;
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-    margin: 25px 105px 100px 105px;
+    margin: 25px auto 100px auto;
+    letter-spacing: -.7px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -12,19 +13,18 @@
     margin-bottom: 83px;
     font-size: 12px;
     line-height: 18px;
-    width: 460px;
+    width: 430px;
     margin-top: 22px;
-    letter-spacing: -4;
+    letter-spacing: -.4px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .techs__subtitle {
     width: 300px;
-    margin: 25px 0 45px 0;
+    margin: 25px auto 40px auto;
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -.4px;
-    grid-area: about;
   }
 }

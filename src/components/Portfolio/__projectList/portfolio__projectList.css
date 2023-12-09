@@ -1,0 +1,10 @@
+.portfolio__projectList {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__projectList {
+    margin-bottom: 50px;
+  }
+}

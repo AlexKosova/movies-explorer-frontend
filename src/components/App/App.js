@@ -12,13 +12,15 @@ import NotFound from '../NotFound/NotFound';
 
 export default function App() {
   return (
-    <div className='page'>
+    <div>
       <CurrentUserContext.Provider>
         <Routes>
           <Route path="/" element={<Main/>} />
-          <Route path="sign-in" element={<Login/>} />
-          <Route path="sign-up" element={<Register/>} />
-          <Route path='movies' element={<Movies />} />
+          <Route path="signin" element={<Login/>} />
+          <Route path="signup" element={<Register/>} />
+          <Route
+          path='movies'
+          element={<Movies />} />
           <Route path='saved-movies' element={<SavedMovies />} />
           <Route path='profile' element={<Profile />} />
           <Route path='*' element={< NotFound/>} />
