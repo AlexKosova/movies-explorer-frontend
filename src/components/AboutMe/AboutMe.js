@@ -4,7 +4,9 @@ import photo from '../../images/aboutMe_photo.jpg';
 export default function AboutMe() {
   return (
     <section className="aboutMe"><h2 className="main__title main__title_aboutMe">Студент</h2>
+
       <div className='aboutMe__wrapper'>
+
         <div className="aboutMe__container">
           <h3 className="aboutMe__title">Виталий</h3>
           <p className="aboutMe__subtitle">Фронтенд-разработчик, 30 лет</p>

@@ -1,15 +1,16 @@
 .aboutProject__block {
     padding: 0;
     display: grid;
-    grid-template-columns: 550px 550px;
+    grid-template-columns: auto auto;
     grid-template-rows: 1fr 1fr;
     column-gap: 40px;
+    width: 100%;
+    justify-content: center;
     row-gap: 8px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .aboutProject__block {
-    grid-template-columns: 319px 319px;
     column-gap: 30px;
   }
 }

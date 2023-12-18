@@ -3,63 +3,54 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import movieApi from '../../utils/MoviesApi';
-// import api from '../../utils/MainApi';
 
-export default function Movies() {
-  const [cards, setCards] = React.useState([]);
+export default function Movies({
+  checkStatus,
+  handleAddCard,
+  cards,
+  setCards,
+  initialCards,
+  handleDeleteMovie,
+  setLoading,
+}) {
   const [filteredCards, setFilteredCards] = React.useState([]);
-  const [initialCards, setInitialCards] = React.useState([]);
-  const [shortMovieToggle, setShortMovieToggle] = React.useState(false);
-
-  // currentCards = setShortMovies;
-  //   localStorage.setItem('shortMovies', JSON.stringify(shortMovies));
-
-  function handleSearch(data) {
-    let filteredItems = initialCards.filter(({ nameRU, nameEN }) => {
-      if (nameRU.toLowerCase().includes(data.toLowerCase())) return true;
-      if (nameEN.toLowerCase().includes(data.toLowerCase())) return true;
-      return false;
-    });
-    setCards(filteredItems);
-    localStorage.setItem('cards', JSON.stringify(filteredItems));
-
-    if (shortMovieToggle) {
-      filteredItems = filteredItems.filter((card) => {
-        if (Number(card.duration) < 40) return true;
-        return false;
-      });
-    }
-
-    localStorage.setItem('shortMovies', JSON.stringify(filteredItems));
-    return setFilteredCards(filteredItems);
-  }
-
-  const checkDuration = (shortMovies) => {
-    let filteredCardList = cards;
-    setShortMovieToggle(shortMovies);
-    if (shortMovieToggle) {
-      filteredCardList = filteredCardList.filter((card) => Number(card.duration) < 40);
-    }
-    console.log(filteredCardList);
-    localStorage.setItem('shortMovies', JSON.stringify(filteredCardList));
-
-    return setFilteredCards(filteredCardList);
-  };
-
+  const [searchHistoryValue, setSearchHistoryValue] = React.useState('');
+  const [durationFilter, setDurationFilter] = React.useState(false);
+  // localStorage.removeItem('savedCards')
   React.useEffect(() => {
-    movieApi.getMovies()
-      .then((res) => { setInitialCards(res); setCards(res); });
+    const moviesList = localStorage.getItem('cards');
+    const moviesSearchHistory = localStorage.getItem('moviesHistory');
+    const durationHistory = localStorage.getItem('durationToggle');
+    if (moviesList) { setFilteredCards(JSON.parse(moviesList)); }
+    if (moviesSearchHistory) { setSearchHistoryValue(moviesSearchHistory); }
+    if (durationHistory) { setDurationFilter(durationHistory); }
+    const filteredDurationList = localStorage.getItem('shortMovies');
+    if (filteredDurationList) {
+      setFilteredCards(JSON.parse(filteredDurationList));
+    }
   }, []);
 
-  return (
-    <>
+  return (<>
     <Header/>
     <main className="movies">
       <SearchForm
-      onSubmit={handleSearch}
-      onChecked={checkDuration}/>
-      <MoviesCardList cards={filteredCards} />
+      setLoading={setLoading}
+      setFilteredCards={setFilteredCards}
+      cards={cards}
+      initialCards={initialCards}
+      filteredCards={filteredCards}
+      setCards={setCards}
+      setSearchHistoryValue = {setSearchHistoryValue}
+      searchHistoryValue = {searchHistoryValue}
+      durationFilter={Boolean(durationFilter)}
+      setDurationFilter={setDurationFilter}
+    />
+      <MoviesCardList
+      handleDeleteMovie={handleDeleteMovie}
+      checkStatus={checkStatus}
+      cards={filteredCards}
+      onAddCard={handleAddCard}
+      />
     </main>
     <Footer/>
     </>
