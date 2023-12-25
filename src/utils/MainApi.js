@@ -53,7 +53,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://movies-explorer.alexk.nomoredomainsrocks.ru/',
+  baseUrl: 'https://api.movies-explorer.alexk.nomoredomainsrocks.ru',
   headers: {
     'Content-Type': 'application/json',
     authorization: `Bearer ${localStorage.getItem('jwt')}`,

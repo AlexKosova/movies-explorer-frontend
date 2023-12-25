@@ -48,7 +48,7 @@ class AuthApi {
 }
 
 const authApi = new AuthApi({
-  baseUrl: 'https://movies-explorer.alexk.nomoredomainsrocks.ru/',
+  baseUrl: 'https://api.movies-explorer.alexk.nomoredomainsrocks.ru',
 });
 
 export default authApi;
