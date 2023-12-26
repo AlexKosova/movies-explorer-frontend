@@ -35,7 +35,7 @@ export default function App() {
   // *авторизация*
   function handleLogin(data) {
     setLoading(true);
-    authApi.login(data).then((res) => {
+    return authApi.login(data).then((res) => {
       localStorage.setItem('jwt', res.token);
       setCurrentUser(res);
       setLoggedIn(true);
@@ -56,7 +56,7 @@ export default function App() {
   // *регистрация*
   function handleRegister(data) {
     setLoading(true);
-    authApi.register(data).then(() => {
+    return authApi.register(data).then(() => {
       const authData = {
         email: data.email,
         password: data.password,
@@ -74,7 +74,7 @@ export default function App() {
   function handleUpdateUser(data) {
     setLoading(true);
     // console.log(data);
-    api.patchUserInfo(data)
+    return api.patchUserInfo(data)
       .then((res) => {
         setCurrentUser(res);
         setLoading(false);
@@ -97,6 +97,7 @@ export default function App() {
     setLoading(true);
     authApi.logout()
       .then(() => {
+        localStorage.clear();
         setCurrentUser({});
         setLoggedIn(false);
         setCards([]);
@@ -105,7 +106,7 @@ export default function App() {
         setInitialCards([]);
         setSavedInitialCards([]);
         navigate('/');
-        console.log(localStorage.clear());
+        console.log(localStorage);
       })
       .catch((err) => {
         console.log(err);

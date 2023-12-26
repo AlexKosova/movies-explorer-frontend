@@ -18,10 +18,13 @@ export default function Movies({
   const [durationFilter, setDurationFilter] = React.useState(false);
   // localStorage.removeItem('savedCards')
   React.useEffect(() => {
-    const moviesList = localStorage.getItem('cards');
+    let moviesList = localStorage.getItem('cards');
+    if (localStorage.getItem('cards') === null) {
+      moviesList = '[]';
+    }
     const moviesSearchHistory = localStorage.getItem('moviesHistory');
     const durationHistory = localStorage.getItem('durationToggle');
-    if (moviesList) { setFilteredCards(JSON.parse(moviesList)); }
+    if (moviesList !== null) { setFilteredCards(JSON.parse(moviesList)); }
     if (moviesSearchHistory) { setSearchHistoryValue(moviesSearchHistory); }
     if (durationHistory) { setDurationFilter(durationHistory); }
     const filteredDurationList = localStorage.getItem('shortMovies');
