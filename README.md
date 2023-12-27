@@ -4,3 +4,4 @@
 
 Фронт: https://movies-explorer.alexk.nomoredomainsrocks.ru/
 Бэк: https://api.movies-explorer.alexk.nomoredomainsrocks.ru/
+Pull request: https://github.com/AlexKosova/movies-explorer-frontend/pull/2
