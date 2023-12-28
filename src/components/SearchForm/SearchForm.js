@@ -12,7 +12,7 @@ export default function SearchForm({
   cards,
   setLoading,
 }) {
-  // const [isValid, setIsValid] = React.useState(false);
+  const [error, setError] = React.useState('');
 
   function checkedLocation() {
     if (window.location.pathname === '/saved-movies') return true; return false;
@@ -20,7 +20,6 @@ export default function SearchForm({
 
   function handleSearch(data) {
     setLoading(true);
-    console.log(checkedLocation());
     let filteredItems = cards;
     if (initialCards) { filteredItems = initialCards; }
     filteredItems = filteredItems.filter(({ nameRU, nameEN }) => {
@@ -28,16 +27,20 @@ export default function SearchForm({
       if (nameEN.toLowerCase().includes(data.toLowerCase())) { return true; }
       return false;
     });
+    if (filteredItems.length === 0) {
+      setFilteredCards([]);
+      return setError('Ничего не найдено');
+    }
     setCards(filteredItems);
     if (checkedLocation() === false) {
       localStorage.setItem('moviesHistory', data);
       localStorage.setItem('cards', JSON.stringify(filteredItems));
       localStorage.setItem('shortMovies', JSON.stringify(filteredItems));
-    } if (checkedLocation() === true) {
-      localStorage.setItem('savedCards', JSON.stringify(filteredItems));
-      localStorage.setItem('savedMoviesHistory', data);
-      localStorage.setItem('savedShortMovies', JSON.stringify(filteredItems));
     }
+    if (checkedLocation() === true) {
+      localStorage.setItem('savedMoviesHistory', JSON.stringify(filteredItems));
+    }
+    setError('');
     setLoading(false);
     return setFilteredCards(filteredItems);
   }
@@ -93,10 +96,11 @@ export default function SearchForm({
           placeholder='Фильм'
           value={searchHistoryValue}
           onChange={handleChange}
-          minLength="2"
+          minLength="1"
           maxLength="40"
           required
           />
+          <span id="searchForm-error" className="error-searchForm">{error}</span>
         <button type='submit' className='searchForm__button'></button>
         </div>
       </form>

@@ -5,9 +5,15 @@ export default function Register({
   onSubmit,
 }) {
   const [userName, setUserName] = React.useState('');
+  const [nameValid, setNameValid] = React.useState(false);
 
   function handleName(e) {
-    setUserName(e.target.value);
+    const n = e.target.value;
+    setUserName(n);
+    if (n.length > 1) {
+      return setNameValid(true);
+    }
+    return setNameValid(false);
   }
   const childrenValue = userName;
 
@@ -19,6 +25,8 @@ export default function Register({
     postGreyText="Уже зарегистрированы?"
     postBlueText="Войти"
     onSubmit={onSubmit}
+    errorName="Нельзя меньше двух символов"
+    nameValid={nameValid}
     childrenValue={childrenValue}
     children={
       <>

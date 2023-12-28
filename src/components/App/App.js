@@ -95,7 +95,7 @@ export default function App() {
   // *выход*
   function handlelogout() {
     setLoading(true);
-    authApi.logout()
+    return authApi.logout()
       .then(() => {
         localStorage.clear();
         setCurrentUser({});
@@ -159,9 +159,23 @@ export default function App() {
   // *удаление фильма*
   function handleDeleteMovie(item) {
     setLoading(true);
+    console.log(item);
     setSavedCards(localStorage.getItem('savedCards'));
     /* eslint no-underscore-dangle: 0 */
-    api.deleteMovie(item._id).then((res) => {
+    if (window.location.pathname === '/saved-movies') {
+      return api.deleteMovie(item._id).then((res) => {
+        const card = savedCards.filter((c) => c.movieId !== res.movieId);
+        localStorage.setItem('savedCards', JSON.stringify(card));
+        setSavedCards(card);
+        setLoading(false);
+      }).catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+    }
+    const cardFromSavedCards = savedCards.filter((movId) => movId.movieId === item.id);
+    console.log(cardFromSavedCards);
+    return api.deleteMovie(cardFromSavedCards[0]._id).then((res) => {
       const card = savedCards.filter((c) => c.movieId !== res.movieId);
       localStorage.setItem('savedCards', JSON.stringify(card));
       setSavedCards(card);
@@ -202,6 +216,7 @@ export default function App() {
         .then((res) => {
           setInitialCards(res);
           setCards(res);
+          setLoading(false);
         }).catch(() => console.log(ERROR_500));
     }
     if (window.location.pathname === '/saved-movies') {
@@ -209,9 +224,16 @@ export default function App() {
         .then((res) => {
           setSavedInitialCards(res);
           setSavedCards(JSON.parse(localStorage.getItem('savedCards')));
+          setLoading(false);
         }).catch(() => console.log(ERROR_500));
     }
-    setLoading(false);
+
+    if (window.location.pathname === '/signin' || window.location.pathname === '/signup') {
+      const checkToken = localStorage.getItem('jwt');
+      if (checkToken) {
+        navigate('/');
+      }
+    }
   }, []);
 
   // *закрытие попапа на esc*

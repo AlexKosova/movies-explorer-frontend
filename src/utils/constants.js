@@ -8,6 +8,8 @@ const ERROR_INVALID_NEW_EMAIL = 'Пользователь с таким email у
 const ERROR_INVALID_UPDATE = 'При обновлении профиля произошла ошибка.';
 const ERROR_404 = '404 Страница по указанному маршруту не найдена.';
 
+const VALID_EMAIL = /^([a-z0-9_.-]+)@([a-z0-9_.-]+)\.([a-z.]{2,6})$/;
+
 module.exports = {
   ERROR_500,
   ERROR_INVALID_AUTORISED,
@@ -18,4 +20,5 @@ module.exports = {
   ERROR_INVALID_NEW_EMAIL,
   ERROR_INVALID_UPDATE,
   ERROR_404,
+  VALID_EMAIL,
 };

@@ -11,7 +11,6 @@ export default function Profile({
   const [isEdit, setIsEdit] = useState(false);
   const [emailValue, setEmailValue] = React.useState(currentUser.email);
   const [nameValue, setNameValue] = React.useState(currentUser.name);
-
   const [error, setError] = React.useState('');
 
   function handleChangeName(e) {
@@ -44,16 +43,23 @@ export default function Profile({
   }
 
   function isDisabled() {
+    console.log(currentUser.inputName, emailValue);
     if (
       nameValue === currentUser.inputName
       && emailValue === currentUser.inputEmail) {
       return true;
-    } return false;
+    }
+    return false;
   }
 
   function handleLogout() {
     onLogout();
   }
+
+  React.useEffect(() => {
+    setEmailValue(currentUser.email);
+    setNameValue(currentUser.name);
+  }, []);
 
   return (
     <>

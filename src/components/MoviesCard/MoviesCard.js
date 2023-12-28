@@ -14,6 +14,13 @@ export default function MoviesCard({
     return `${hours ? `${hours}ч` : ''} ${minutes}м`.trim();
   }
 
+  function location() {
+    if (window.location.pathname === '/movies') {
+      return 'moviesCard__button moviesCard__button_active';
+    }
+    return 'moviesCard__button moviesCard__button_savedActive';
+  }
+
   // function handleCheck() {
   //   return checkStatus(card);
   // }
@@ -39,7 +46,7 @@ export default function MoviesCard({
     <button
     type="button"
     onClick={checkStatus(card) ? handleDelete : handleAddCard}
-    className={checkStatus(card) ? 'moviesCard__button moviesCard__button_active' : 'moviesCard__button'} ></button>
+    className={checkStatus(card) ? location() : 'moviesCard__button'} ></button>
     <p className="moviesCard__time">{getTime(card.duration)}</p>
     </li>
   );

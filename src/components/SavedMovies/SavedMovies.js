@@ -7,27 +7,34 @@ import Header from '../Header/Header';
 export default function SavedMovies({
   checkStatus,
   handleDeleteMovie,
-  savedInitialCards,
+  // savedInitialCards,
   cards,
   setCards,
   setLoading,
 }) {
   const [filteredSavedCards, setFilteredSavedCards] = React.useState(cards || []);
-  const [savedDurationFilter, setSavedDurationFilter] = React.useState(localStorage.getItem('savedDurationToggle') || false);
+  const [savedDurationFilter, setSavedDurationFilter] = React.useState(false);
   const [searchSavedHistoryValue, setSavedSearchHistoryValue] = React.useState('');
 
-  const moviesSearchHistory = localStorage.getItem('savedMoviesHistory');
-  const durationHistory = JSON.parse(localStorage.getItem('savedDurationToggle'));
+  // React.useEffect(() => {
+  //   setFilteredSavedCards(localStorage.getItem('savedCards'));
+  // });
+
+  // const moviesSearchHistory = localStorage.getItem('savedMoviesHistory');
+  // const durationHistory = JSON.parse(localStorage.getItem('savedDurationToggle'));
 
   React.useEffect(() => {
-    const moviesList = localStorage.getItem('savedCards');
+    const moviesList = localStorage.getItem('savedMoviesHistory');
     if (moviesList) { setFilteredSavedCards(JSON.parse(moviesList)); }
-    if (moviesSearchHistory) { setSavedSearchHistoryValue(moviesSearchHistory); }
-    if (durationHistory) {
-      setSavedDurationFilter(durationHistory);
-      const filteredDurationList = localStorage.getItem('savedShortMovies');
-      if (filteredDurationList) { setFilteredSavedCards(JSON.parse(filteredDurationList)); }
-    }
+    // if (moviesSearchHistory) { setSavedSearchHistoryValue(moviesSearchHistory); }
+    // if (durationHistory) {
+    //   setSavedDurationFilter(durationHistory);
+    // const filteredDurationList = localStorage.getItem('savedShortMovies');
+    localStorage.setItem('savedShortMovies', false);
+    localStorage.setItem('savedDurationToggle', false);
+    localStorage.setItem('savedMoviesHistory', '');
+    // if (filteredDurationList) { setFilteredSavedCards(JSON.parse(filteredDurationList)); }
+    // }
   }, [cards]);
 
   return (
@@ -42,7 +49,7 @@ export default function SavedMovies({
       durationFilter={savedDurationFilter}
       setDurationFilter={setSavedDurationFilter}
       setCards={setCards}
-      initialCards={savedInitialCards}
+      initialCards={cards}
       searchSavedHistoryValue={searchSavedHistoryValue}
       />
       <MoviesCardList
