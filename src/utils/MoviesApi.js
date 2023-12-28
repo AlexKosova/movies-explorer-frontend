@@ -25,7 +25,6 @@ class Api {
 const movieApi = new Api({
   baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
   headers: {
-    // authorization: 'fb85a167-fa0c-4b77-b6c4-6e80ca894d63',
     'Content-Type': 'application/json',
   },
 });

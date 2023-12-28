@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-export default function MoviesCardList({ cards }) {
+export default function MoviesCardList({
+  cards,
+  onAddCard,
+  checkStatus,
+  handleDeleteMovie,
+}) {
   const [numToShow, setNumToShow] = useState(16);
   const [nowShowing, setNowShowing] = useState(numToShow);
   const [list, setList] = useState(cards.slice(0, numToShow));
@@ -28,7 +33,13 @@ export default function MoviesCardList({ cards }) {
   return (
     <>
       <ul className="moviesCardList">
-      {list.map((data) => <MoviesCard card={data} />)}
+      {list.map((data) => <MoviesCard
+      key={window.location.pathname === '/movies' ? data.id : data.movieId}
+      checkStatus={checkStatus}
+      card={data}
+      onAddCard={onAddCard}
+      onDelete={handleDeleteMovie}
+      />)}
       </ul>
       {cards.length > nowShowing ? <button type='button' onClick={showMore} className="movies__moreButton">Ещё</button> : ''}
     </>

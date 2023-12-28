@@ -10,6 +10,10 @@
     border: none;
 }
 
+.searchForm__disabled-button {
+  background-color: #7ba4e693;
+}
+
 .searchForm__button:hover {
   cursor: pointer;
   opacity: .9;

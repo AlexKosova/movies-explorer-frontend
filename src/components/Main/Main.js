@@ -7,13 +7,10 @@ import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
-export default function Main() {
-  // const width = useState(window.innerWidth);
-  // const main = document.getElementsByClassName('main');
-  // main.style.cssText = `width: ${width}`;
+export default function Main({ isLoggedIn }) {
   return (
     <>
-    <Header/>
+    <Header isLoggedIn={isLoggedIn} />
     <main className="main" id='main'>
       <Promo />
       <AboutProject />
