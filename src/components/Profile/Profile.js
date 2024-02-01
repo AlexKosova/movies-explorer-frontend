@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
 import CurrentUserContext from '../../context/CurrentUserContext/CurrentUserContext';
+import { VALID_EMAIL } from '../../utils/constants';
 
 export default function Profile({
   onUpdateUser,
@@ -12,6 +13,14 @@ export default function Profile({
   const [emailValue, setEmailValue] = React.useState(currentUser.email);
   const [nameValue, setNameValue] = React.useState(currentUser.name);
   const [error, setError] = React.useState('');
+  const [isNameChanged, setNameChanged] = React.useState(false);
+  const [isEmailChanged, setEmailChanged] = React.useState(false);
+
+  // React.useEffect(() => {
+  //   setNameValue(currentUser.name);
+  //   setEmailValue(currentUser.email);
+  //   console.log(currentUser);
+  // }, []);
 
   function handleChangeName(e) {
     const x = e.target.value;
@@ -19,7 +28,12 @@ export default function Profile({
       setError('Нельзя меньше двух символов');
     }
     setNameValue(e.target.value);
+    if (String(e.target.value) !== String(currentUser.name)) {
+      return setNameChanged(true);
+    }
+    console.log(currentUser.name);
     console.log(e.target.value);
+    return setNameChanged(false);
   }
 
   function handleChangeEmail(e) {
@@ -28,7 +42,12 @@ export default function Profile({
       setError('Нельзя меньше двух символов');
     }
     setEmailValue(e.target.value);
+    if (e.target.value !== currentUser.email) {
+      return setEmailChanged(true);
+    }
     console.log(e.target.value);
+    if (!VALID_EMAIL.test(e.target.value.toLowerCase())) setError('пожалуйста, введите корректный email');
+    return setEmailChanged(false);
   }
 
   function handleSubmit(e) {
@@ -43,23 +62,16 @@ export default function Profile({
   }
 
   function isDisabled() {
-    console.log(currentUser.inputName, emailValue);
     if (
-      nameValue === currentUser.inputName
-      && emailValue === currentUser.inputEmail) {
+      !isEmailChanged
+      && !isNameChanged) {
       return true;
-    }
-    return false;
+    } return false;
   }
 
   function handleLogout() {
     onLogout();
   }
-
-  React.useEffect(() => {
-    setEmailValue(currentUser.email);
-    setNameValue(currentUser.name);
-  }, []);
 
   return (
     <>
@@ -106,7 +118,7 @@ export default function Profile({
           ) : (
         <>
         <button className="profile__button" id="editButton" type="button" onClick={() => setIsEdit(true)}>Редактировать</button>
-        <NavLink onClick={handleLogout} className="profile__button profile__button-text" to='/'>Выйти из аккаунта</NavLink>
+        <button onClick={handleLogout} className="profile__button profile__button-text">Выйти из аккаунта</button>
         </>
           )
         }

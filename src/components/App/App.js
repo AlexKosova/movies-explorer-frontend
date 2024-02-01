@@ -16,7 +16,7 @@ import movieApi from '../../utils/MoviesApi';
 import {
   ERROR_500,
   ERROR_INVALID_AUTORISED,
-  ERROR_INVALID_LOGIN,
+  // ERROR_INVALID_LOGIN,
   ERROR_INVALID_TOKEN,
   ERROR_INVALID_REGISTRATION,
   ERROR_INVALID_UPDATE,
@@ -24,6 +24,7 @@ import {
 
 export default function App() {
   const [currentUser, setCurrentUser] = React.useState({});
+  // const [users, setUsers] = React.useState();
   const [isLoggedIn, setLoggedIn] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
   const navigate = useNavigate();
@@ -32,20 +33,39 @@ export default function App() {
   const [initialCards, setInitialCards] = React.useState([]);
   const [savedInitialCards, setSavedInitialCards] = React.useState(savedCards);
 
+  // // *проверка авторизации*
+  function handleCheckToken() {
+    const checkToken = localStorage.getItem('jwt');
+    if (checkToken) {
+      api.getUserInfo()
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+            return setCurrentUser(res);
+          }
+          return setLoggedIn(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    if (!checkToken) {
+      console.log(ERROR_INVALID_TOKEN);
+      setLoggedIn(false);
+    }
+  }
+
   // *авторизация*
   function handleLogin(data) {
+    setCurrentUser({});
     setLoading(true);
     return authApi.login(data).then((res) => {
-      localStorage.setItem('jwt', res.token);
-      setCurrentUser(res);
+      localStorage.setItem('jwt', res.jwt);
+      console.log(localStorage.getItem('jwt'));
       setLoggedIn(true);
-      api.getUserInfo()
-        .then((userData) => {
-          // console.log(userData);
-          setCurrentUser(userData);
-        }).catch((err) => console.log(err, ERROR_INVALID_LOGIN));
       setLoading(false);
       navigate('/movies');
+      setCurrentUser(res.user);
     })
       .catch((err) => {
         // setInfoTooltipOpen(true)
@@ -53,6 +73,7 @@ export default function App() {
         console.log(err, ERROR_INVALID_AUTORISED);
       });
   }
+
   // *регистрация*
   function handleRegister(data) {
     setLoading(true);
@@ -85,21 +106,14 @@ export default function App() {
       });
   }
 
-  // *получение токена*
-  React.useEffect(() => {
-    const checkToken = localStorage.getItem('jwt');
-    if (checkToken) setLoggedIn(true);
-    if (!checkToken) console.log(ERROR_INVALID_TOKEN);
-  }, []);
-
   // *выход*
   function handlelogout() {
-    setLoading(true);
+    localStorage.removeItem('jwt');
+    localStorage.clear();
     return authApi.logout()
+      .then(() => setCurrentUser({}))
+      .then(() => setLoggedIn(false))
       .then(() => {
-        localStorage.clear();
-        setCurrentUser({});
-        setLoggedIn(false);
         setCards([]);
         setSavedCards([]);
         setLoading(false);
@@ -107,6 +121,10 @@ export default function App() {
         setSavedInitialCards([]);
         navigate('/');
         console.log(localStorage);
+      })
+      .then(() => {
+        setCurrentUser({});
+        console.log(currentUser);
       })
       .catch((err) => {
         console.log(err);
@@ -159,23 +177,14 @@ export default function App() {
   // *удаление фильма*
   function handleDeleteMovie(item) {
     setLoading(true);
-    console.log(item);
     setSavedCards(localStorage.getItem('savedCards'));
-    /* eslint no-underscore-dangle: 0 */
-    if (window.location.pathname === '/saved-movies') {
-      return api.deleteMovie(item._id).then((res) => {
-        const card = savedCards.filter((c) => c.movieId !== res.movieId);
-        localStorage.setItem('savedCards', JSON.stringify(card));
-        setSavedCards(card);
-        setLoading(false);
-      }).catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
+    console.log(item);
+    let movie = item;
+    if (window.location.pathname === '/movies') {
+      movie = savedCards.find((c) => c.movieId === item.id);
     }
-    const cardFromSavedCards = savedCards.filter((movId) => movId.movieId === item.id);
-    console.log(cardFromSavedCards);
-    return api.deleteMovie(cardFromSavedCards[0]._id).then((res) => {
+    /* eslint no-underscore-dangle: 0 */
+    api.deleteMovie(movie._id).then((res) => {
       const card = savedCards.filter((c) => c.movieId !== res.movieId);
       localStorage.setItem('savedCards', JSON.stringify(card));
       setSavedCards(card);
@@ -189,17 +198,15 @@ export default function App() {
   // localStorage.removeItem('savedCards')
 
   // *проверка авторизации*
-  React.useEffect(() => {
-    if (isLoggedIn) {
-      api.getUserInfo()
-        .then((userData) => {
-          setCurrentUser(userData);
-        })
-        .catch((err) => {
-          console.log(err, ERROR_INVALID_AUTORISED);
-        });
-    }
-  }, [isLoggedIn]);
+  // React.useEffect(() => {
+  //   if (isLoggedIn) {
+  //     api.getUserInfo()
+  //       .then((userData) => { setCurrentUser(userData); })
+  //       .catch((err) => {
+  //         console.log(err, ERROR_INVALID_AUTORISED);
+  //       });
+  //   }
+  // }, [isLoggedIn]);
 
   // *получение фильмов*
   React.useEffect(() => {
@@ -210,6 +217,7 @@ export default function App() {
 
   // *получение сохранёнок*
   React.useEffect(() => {
+    handleCheckToken();
     setLoading(true);
     if (window.location.pathname === '/movies') {
       movieApi.getMovies()
@@ -226,13 +234,6 @@ export default function App() {
           setSavedCards(JSON.parse(localStorage.getItem('savedCards')));
           setLoading(false);
         }).catch(() => console.log(ERROR_500));
-    }
-
-    if (window.location.pathname === '/signin' || window.location.pathname === '/signup') {
-      const checkToken = localStorage.getItem('jwt');
-      if (checkToken) {
-        navigate('/');
-      }
     }
   }, []);
 
@@ -290,7 +291,7 @@ export default function App() {
           <Route
           path={isLoggedIn ? 'profile' : '/'}
           element={<Profile onLogout={handlelogout}
-          onUpdateUser={handleUpdateUser}/>}
+          onUpdateUser={handleUpdateUser} />}
           />
           <Route
           path='*'

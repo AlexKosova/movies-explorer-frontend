@@ -16,8 +16,15 @@ export default function FilterCheckbox({
     setDurationFilter(!durationFilter);
     checkClassButton();
     onChecked(e.target.checked);
+    if (checkedLocation) {
+      localStorage.setItem('durationToggle', JSON.stringify(!durationFilter));
+    }
     localStorage.setItem(checkedLocation ? 'savedDurationToggle' : 'durationToggle', JSON.stringify(!durationFilter));
   };
+
+  React.useEffect(() => {
+    localStorage.removeItem('savedDurationToggle');
+  }, []);
 
   return (
     <div className="searchForm__filterContainer">

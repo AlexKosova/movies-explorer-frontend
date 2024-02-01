@@ -52,3 +52,6 @@ const authApi = new AuthApi({
 });
 
 export default authApi;
+
+// https://api.movies-explorer.alexk.nomoredomainsrocks.ru
+// http://127.0.0.1:3001

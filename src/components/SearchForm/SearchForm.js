@@ -12,27 +12,23 @@ export default function SearchForm({
   cards,
   setLoading,
 }) {
-  const [error, setError] = React.useState('');
-
   function checkedLocation() {
     if (window.location.pathname === '/saved-movies') return true; return false;
   }
 
   function handleSearch(data) {
     setLoading(true);
-    let filteredItems = cards;
-    if (initialCards) { filteredItems = initialCards; }
-    filteredItems = filteredItems.filter(({ nameRU, nameEN }) => {
-      if (nameRU.toLowerCase().includes(data.toLowerCase())) { return true; }
-      if (nameEN.toLowerCase().includes(data.toLowerCase())) { return true; }
-      return false;
-    });
-    if (filteredItems.length === 0) {
-      setFilteredCards([]);
-      return setError('Ничего не найдено');
+    let filteredItems = initialCards;
+    if (checkedLocation()) {
+      filteredItems = cards;
     }
+    filteredItems = filteredItems.filter(
+      (film) => film.nameRU.toLowerCase().includes(data.toLowerCase())
+      || film.nameEN.toLowerCase().includes(data.toLowerCase()),
+    );
+    console.log(filteredItems);
     setCards(filteredItems);
-    if (checkedLocation() === false) {
+    if (!checkedLocation()) {
       localStorage.setItem('moviesHistory', data);
       localStorage.setItem('cards', JSON.stringify(filteredItems));
       localStorage.setItem('shortMovies', JSON.stringify(filteredItems));
@@ -40,30 +36,30 @@ export default function SearchForm({
     if (checkedLocation() === true) {
       localStorage.setItem('savedMoviesHistory', JSON.stringify(filteredItems));
     }
-    setError('');
     setLoading(false);
     return setFilteredCards(filteredItems);
   }
 
   function checkDuration(durationToggle) {
     let filteredCardList = JSON.parse(localStorage.getItem(checkedLocation() ? 'savedCards' : 'cards'));
-
     setDurationFilter(durationToggle);
-    localStorage.setItem(checkedLocation() ? 'savedDurationToggle' : 'shortMovies', durationToggle);
+    if (!checkedLocation()) {
+      localStorage.setItem('shortMovies', durationToggle);
+    }
     if (!durationFilter) {
       filteredCardList = filteredCardList.filter(
         (card) => Number(card.duration) < 40,
       );
     }
-    localStorage.setItem(checkedLocation() ? 'savedShortMovies' : 'shortMovies', JSON.stringify(filteredCardList));
-    console.log(filteredCardList);
+    if (!checkedLocation()) {
+      localStorage.setItem('shortMovies', JSON.stringify(filteredCardList));
+    }
     return setFilteredCards(filteredCardList);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     handleSearch(searchHistoryValue);
-    console.log(searchHistoryValue);
   }
 
   function handleChange(e) {
@@ -71,17 +67,18 @@ export default function SearchForm({
   }
 
   React.useEffect(() => {
-    if (checkedLocation() === false) {
+    if (!checkedLocation()) {
       const searchHistory = localStorage.getItem('searchHistoryValue');
       if (searchHistory) {
         setSearchHistoryValue(searchHistory);
       }
-    } else if (checkedLocation() === true) {
-      const searchSavedHistory = localStorage.getItem('searchSavedHistoryValue');
-      if (searchSavedHistory) {
-        setSearchHistoryValue(searchSavedHistory);
-      }
     }
+    // if (checkedLocation() === true) {
+    //   const searchSavedHistory = localStorage.getItem('searchSavedHistoryValue');
+    //   if (searchSavedHistory) {
+    //     setSearchHistoryValue(searchSavedHistory);
+    //   }
+    // }
   }, []);
 
   return (
@@ -100,7 +97,6 @@ export default function SearchForm({
           maxLength="40"
           required
           />
-          <span id="searchForm-error" className="error-searchForm">{error}</span>
         <button type='submit' className='searchForm__button'></button>
         </div>
       </form>

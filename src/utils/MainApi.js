@@ -22,6 +22,12 @@ class Api {
     });
   }
 
+  getUserInfo() {
+    return this._request(`${this._url}/users/me`, {
+      headers: this._headers,
+    });
+  }
+
   getMovies() {
     return this._request(`${this._url}/movies`, {
       method: 'GET',
@@ -29,8 +35,9 @@ class Api {
     });
   }
 
-  getUserInfo() {
-    return this._request(`${this._url}/users/me`, {
+  getUsers() {
+    return this._request(`${this._url}/users`, {
+      method: 'GET',
       headers: this._headers,
     });
   }
@@ -56,8 +63,11 @@ const api = new Api({
   baseUrl: 'https://api.movies-explorer.alexk.nomoredomainsrocks.ru',
   headers: {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 
 export default api;
+
+// https://api.movies-explorer.alexk.nomoredomainsrocks.ru
+// http://127.0.0.1:3001

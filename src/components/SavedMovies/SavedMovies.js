@@ -7,35 +7,27 @@ import Header from '../Header/Header';
 export default function SavedMovies({
   checkStatus,
   handleDeleteMovie,
-  // savedInitialCards,
+  savedInitialCards,
   cards,
   setCards,
   setLoading,
 }) {
   const [filteredSavedCards, setFilteredSavedCards] = React.useState(cards || []);
-  const [savedDurationFilter, setSavedDurationFilter] = React.useState(false);
+  const [savedDurationFilter, setSavedDurationFilter] = React.useState(localStorage.getItem('savedDurationToggle') || false);
   const [searchSavedHistoryValue, setSavedSearchHistoryValue] = React.useState('');
 
-  // React.useEffect(() => {
-  //   setFilteredSavedCards(localStorage.getItem('savedCards'));
-  // });
-
   // const moviesSearchHistory = localStorage.getItem('savedMoviesHistory');
-  // const durationHistory = JSON.parse(localStorage.getItem('savedDurationToggle'));
+  const durationHistory = JSON.parse(localStorage.getItem('savedDurationToggle'));
 
   React.useEffect(() => {
-    const moviesList = localStorage.getItem('savedMoviesHistory');
+    const moviesList = localStorage.getItem('savedCards');
     if (moviesList) { setFilteredSavedCards(JSON.parse(moviesList)); }
-    // if (moviesSearchHistory) { setSavedSearchHistoryValue(moviesSearchHistory); }
-    // if (durationHistory) {
-    //   setSavedDurationFilter(durationHistory);
-    // const filteredDurationList = localStorage.getItem('savedShortMovies');
-    localStorage.setItem('savedShortMovies', false);
-    localStorage.setItem('savedDurationToggle', false);
-    localStorage.setItem('savedMoviesHistory', '');
-    // if (filteredDurationList) { setFilteredSavedCards(JSON.parse(filteredDurationList)); }
-    // }
-  }, [cards]);
+    if (durationHistory) {
+      setSavedDurationFilter(durationHistory);
+      const filteredDurationList = localStorage.getItem('savedShortMovies');
+      if (filteredDurationList) { setFilteredSavedCards(JSON.parse(filteredDurationList)); }
+    }
+  }, []);
 
   return (
     <>
@@ -43,13 +35,14 @@ export default function SavedMovies({
     <main className="movies">
       <SearchForm
       setLoading={setLoading}
+      cards={cards}
       setFilteredCards={setFilteredSavedCards}
       setSearchHistoryValue = {setSavedSearchHistoryValue}
       searchHistoryValue = {searchSavedHistoryValue}
       durationFilter={savedDurationFilter}
       setDurationFilter={setSavedDurationFilter}
       setCards={setCards}
-      initialCards={cards}
+      initialCards={savedInitialCards}
       searchSavedHistoryValue={searchSavedHistoryValue}
       />
       <MoviesCardList

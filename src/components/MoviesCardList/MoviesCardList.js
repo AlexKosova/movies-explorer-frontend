@@ -41,6 +41,7 @@ export default function MoviesCardList({
       onDelete={handleDeleteMovie}
       />)}
       </ul>
+      {cards.length === 0 ? <label className='label__font'>Ничего не найдено</label> : ''}
       {cards.length > nowShowing ? <button type='button' onClick={showMore} className="movies__moreButton">Ещё</button> : ''}
     </>
   );

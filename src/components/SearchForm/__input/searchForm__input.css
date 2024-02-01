@@ -36,13 +36,3 @@
     font-size: 18px;
   }
 }
-
-.error-searchForm {
-  color: #ffffff3f;
-  border: none;
-  line-height: 34px;
-  font-size: 28px;
-  font-weight: 500;
-  position: absolute;
-  top: 300px;
-}
