@@ -15,35 +15,38 @@ class Api {
       });
   }
 
-  getSavedMovie() {
-    return this._request(`${this._url}/movies`, {
-      method: 'POST',
-      headers: this._headers,
-      credentials: 'include',
-    });
-  }
-
   deleteMovie(id) {
     return this._request(`${this._url}/movies/${id}`, {
       method: 'DELETE',
       headers: this._headers,
-      credentials: 'include',
     });
   }
 
   getUserInfo() {
     return this._request(`${this._url}/users/me`, {
-      method: 'DELETE',
       headers: this._headers,
-      credentials: 'include',
     });
   }
 
-  patchUserInfo() {
+  getMovies() {
+    return this._request(`${this._url}/movies`, {
+      method: 'GET',
+      headers: this._headers,
+    });
+  }
+
+  getUsers() {
+    return this._request(`${this._url}/users`, {
+      method: 'GET',
+      headers: this._headers,
+    });
+  }
+
+  patchUserInfo(inputValue) {
     return this._request(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
-      credentials: 'include',
+      body: JSON.stringify(inputValue),
     });
   }
 
@@ -51,30 +54,20 @@ class Api {
     return this._request(`${this._url}/movies`, {
       method: 'POST',
       headers: this._headers,
-      credentials: 'include',
-      body: JSON.stringify({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        year: data.year,
-        description: data.description,
-        image: `https://api.nomoreparties.co/${data.image.url}`,
-        trailerLink: data.trailerLink,
-        thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
-        movieId: data.id,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN,
-      }),
+      body: JSON.stringify(data),
     });
   }
 }
 
 const api = new Api({
-  baseUrl: 'https://localhost3000',
+  baseUrl: 'https://api.movies-explorer.alexk.nomoredomainsrocks.ru',
   headers: {
-    // authorization: 'fb85a167-fa0c-4b77-b6c4-6e80ca894d63',
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 
 export default api;
+
+// https://api.movies-explorer.alexk.nomoredomainsrocks.ru
+// http://127.0.0.1:3001

@@ -1,6 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function MoviesCard({ card }) {
+export default function MoviesCard({
+  card,
+  onAddCard,
+  onDelete,
+  checkStatus,
+}) {
   function getTime(data) {
     const time = Number(data);
     const hours = Math.floor(time / 60);
@@ -8,14 +14,33 @@ export default function MoviesCard({ card }) {
     return `${hours ? `${hours}ч` : ''} ${minutes}м`.trim();
   }
 
-  // function handleLikeMovies (e) {
-  //   e.preventDefault();
-  // }
+  function checkLocation() {
+    if (window.location.pathname === '/movies') return 'moviesCard__button moviesCard__button_active';
+    return 'moviesCard__button moviesCard__button_liked';
+  }
+
+  // const buttonToggle = checkStatus(card);
+
+  function handleAddCard() {
+    onAddCard(card);
+  }
+
+  function handleDelete() {
+    onDelete(card);
+  }
+
   return (
     <li className="moviesCard">
-    <img src={ `https://api.nomoreparties.co/${card.image.url}` } className="moviesCard__image" alt={card.nameRu}/>
+      <NavLink to={card.trailerLink}>
+        <img
+        src={ window.location.pathname === '/movies' ? `https://api.nomoreparties.co/${card.image.url}` : `${card.image}` } className="moviesCard__image"
+        alt={card.nameRu}/>
+        </NavLink>
     <h2 className="moviesCard__title">{card.nameRU}</h2>
-    <button type="button" onClick={card.saved} className={card.saved ? 'moviesCard__button moviesCard__button_active' : 'moviesCard__button'} ></button>
+    <button
+    type="button"
+    onClick={checkStatus(card) ? handleDelete : handleAddCard}
+    className={checkStatus(card) ? checkLocation() : 'moviesCard__button'} ></button>
     <p className="moviesCard__time">{getTime(card.duration)}</p>
     </li>
   );

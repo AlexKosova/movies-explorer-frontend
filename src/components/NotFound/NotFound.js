@@ -11,6 +11,5 @@ export default function NotFound() {
       <button type='button' onClick={() => navigate(-1)} className="notFound__button">Назад</button>
     </section>
     </main>
-
   );
 }

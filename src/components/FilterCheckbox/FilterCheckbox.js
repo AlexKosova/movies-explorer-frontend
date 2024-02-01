@@ -1,23 +1,40 @@
 import React from 'react';
 
-export default function FilterCheckbox({ onChecked }) {
-  const [shortMovies, setShortMovies] = React.useState(false);
-  React.useEffect(() => {
-    if (window.location.pathname === '/movies') {
-      localStorage.getItem('shortMovies');
-      setShortMovies(JSON.parse(shortMovies));
-    }
-  }, []);
+export default function FilterCheckbox({
+  onChecked,
+  durationFilter,
+  setDurationFilter,
+  checkedLocation,
+}) {
+  function checkClassButton() {
+    const checkValue = localStorage.getItem(checkedLocation ? 'savedDurationToggle' : 'durationToggle');
+    if (checkValue === 'true') { return 'searchForm__filterTrue'; }
+    return 'searchForm__filter';
+  }
 
   const handleShortMovie = (e) => {
-    setShortMovies(e.target.checked);
+    setDurationFilter(!durationFilter);
+    checkClassButton();
     onChecked(e.target.checked);
+    if (checkedLocation) {
+      localStorage.setItem('durationToggle', JSON.stringify(!durationFilter));
+    }
+    localStorage.setItem(checkedLocation ? 'savedDurationToggle' : 'durationToggle', JSON.stringify(!durationFilter));
   };
 
+  React.useEffect(() => {
+    localStorage.removeItem('savedDurationToggle');
+  }, []);
+
   return (
-    <div class="searchForm__filterContainer">
-      <input onChange={handleShortMovie} checked={shortMovies ?? false} type="checkbox" id="filmFilter" class="searchForm__filter"/>
-      <label for="filmFilter">Короткометражки</label>
+    <div className="searchForm__filterContainer">
+      <input
+      onChange={(e) => handleShortMovie(e)}
+      checked={Boolean(durationFilter)}
+      type="checkbox"
+      id="filmFilter"
+      className={checkClassButton()}/>
+      <label>Короткометражки</label>
     </div>
   );
 }

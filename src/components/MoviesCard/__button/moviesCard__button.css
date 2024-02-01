@@ -20,6 +20,14 @@
     background-position: center;
 }
 
+.moviesCard__button_liked {
+    background-image: url(../../../images/delete_button.svg);
+    border: none;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .moviesCard__button:hover {
   cursor: pointer;
   opacity: .7;
